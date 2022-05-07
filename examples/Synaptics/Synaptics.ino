@@ -49,21 +49,40 @@ void setup(void) {
 
 void loop(){
   device->read_data();
+  int x, y;
+  uint8_t z, w;
+  bool r, l, m;
+  x = device->getX(); y = device->getY(); z = device->getZ(); w = device->getW();
+  r = device->rightClicked(); l = device->leftClicked(); m = device-> middleClicked();
+  if (!(x | y | z | w) && !(r | l | m))
+    return;
   print_data(true);
   Serial.print("getZ: ");
-  Serial.print(device->getZ());
+  Serial.print(z);
   Serial.print(", ");
   
   Serial.print("getW: ");
-  Serial.print(device->getW());
+  Serial.print(w);
   Serial.print(", ");
   
   Serial.print("getX: ");
-  Serial.print(device->getX());
+  Serial.print(x);
   Serial.print(", ");
   
   Serial.print("getY: ");
-  Serial.print(device->getY());
+  Serial.print(y);
+  Serial.println();
+
+  Serial.print("left: ");
+  Serial.print(l);
+  Serial.print(", ");
+
+  Serial.print("right: ");
+  Serial.print(r);
+  Serial.print(", ");
+
+  Serial.print("middle: ");
+  Serial.print(m);
   Serial.println();
   delay(20);
 }
