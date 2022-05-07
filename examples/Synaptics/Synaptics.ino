@@ -9,7 +9,10 @@ void print_data(bool data_packet=false) {
   Serial.print(" ");
   Serial.print(device->data[2], HEX);
   Serial.print(" ");
-  if (!data_packet) return;
+  if (!data_packet) {
+    Serial.println();
+    return;
+  }
   Serial.print(device->data[3], HEX);
   Serial.print(" ");
   Serial.print(device->data[4], HEX);
@@ -46,7 +49,7 @@ void setup(void) {
 
 void loop(){
   device->read_data();
-  print_data();
+  print_data(true);
   Serial.print("getZ: ");
   Serial.print(device->getZ());
   Serial.print(", ");
