@@ -315,6 +315,18 @@ Synaptics::read_capabilities(void)
 }
 
 void 
+Synaptics::read_ext_cap(void)
+{
+	special_sequence(PAD_SEQ_INFO,0x09);
+}
+
+void 
+Synaptics::read_ext_cap_0c(void)
+{
+	special_sequence(PAD_SEQ_INFO,0x0c);
+}
+
+void 
 Synaptics::read_modelid(void)
 {
 	special_sequence(PAD_SEQ_INFO,0x03);

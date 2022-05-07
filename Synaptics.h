@@ -55,6 +55,8 @@ class Synaptics
 		void identify(void);
 		uint8_t read_modes(void);
 		void read_capabilities(void);
+    void read_ext_cap(void);
+    void read_ext_cap_0c(void);
 		void read_modelid(void);
 		// set mode sequence
 		void set_mode(uint8_t mode);
@@ -79,4 +81,3 @@ class Synaptics
 };
 
 #endif /* synaptics_h */
-
