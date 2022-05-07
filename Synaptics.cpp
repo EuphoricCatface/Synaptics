@@ -207,6 +207,10 @@ Synaptics::rightClicked(void) {
 	return (bitRead(data[0],1));
 }
 
+bool 
+Synaptics::middleClicked(void) {
+  return (bitRead(data[0],2));
+}
 
 void
 Synaptics::special_sequence(int sequence_type, uint8_t param)

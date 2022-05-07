@@ -69,6 +69,7 @@ class Synaptics
 		int getY(void);	
 		bool leftClicked(void);
 		bool rightClicked(void);
+    bool middleClicked(void);
 	private:
 		int _ps2clk;
 		int _ps2data;
