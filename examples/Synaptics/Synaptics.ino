@@ -44,8 +44,9 @@ void setup(void) {
   Serial.print("read_modelid: ");
   device->read_modelid();
   print_data();
-  Serial.println("sleep for 5 secs...");
+  Serial.print("sleep for 5 secs...");
   delay(5000);
+  Serial.println("done!");
   device->enable();
 }
 
