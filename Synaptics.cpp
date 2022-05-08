@@ -159,7 +159,7 @@ Synaptics::getW(void) {
 		return (
 			((data[0] & 0x30)>>2) |
 			((data[0] & 0x04)>>1) |
-			((data[4] & 0x04)>>2) 
+			((data[3] & 0x04)>>2) 
 		);
 	} else 
 		return 0;
