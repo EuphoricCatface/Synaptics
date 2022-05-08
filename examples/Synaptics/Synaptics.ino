@@ -44,6 +44,12 @@ void setup(void) {
   Serial.print("read_modelid: ");
   device->read_modelid();
   print_data();
+  Serial.print("read_min: ");
+  device->read_min();
+  print_data();
+  Serial.print("read_max: ");
+  device->read_max();
+  print_data();
   Serial.print("sleep for 5 secs...");
   delay(5000);
   Serial.println("done!");

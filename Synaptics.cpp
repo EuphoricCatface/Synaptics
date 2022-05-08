@@ -336,6 +336,18 @@ Synaptics::read_modelid(void)
 	special_sequence(PAD_SEQ_INFO,0x03);
 }
 
+void
+Synaptics::read_min(void)
+{
+	special_sequence(PAD_SEQ_INFO, 0x0f);
+}
+
+void
+Synaptics::read_max(void)
+{
+	special_sequence(PAD_SEQ_INFO, 0x0d);
+}
+
 /**
 * set mode for pad. See section 2.5 for details (or .h file)
 */
