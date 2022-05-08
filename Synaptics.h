@@ -60,6 +60,7 @@ class Synaptics
 		void read_modelid(void);
 		void read_min(void);
 		void read_max(void);
+		void read_res(void);
 		// set mode sequence
 		void set_mode(uint8_t mode);
 		bool isAbsolute(void);
