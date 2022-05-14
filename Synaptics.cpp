@@ -209,7 +209,7 @@ Synaptics::rightClicked(void) {
 
 bool 
 Synaptics::middleClicked(void) {
-  return (bitRead(data[0],2));
+	return (bitRead(data[0],2));
 }
 
 void
@@ -238,6 +238,13 @@ Synaptics::special_sequence(int sequence_type, uint8_t param)
 		write(0xf3);
 		read_ack();
 		write(0x14);
+		read_ack();
+		//no result
+	} else if (sequence_type == PAD_SEQ_SET_AGM)
+	{
+		write(0xf3);
+		read_ack();
+		write(0xc8);
 		read_ack();
 		//no result
 	}
@@ -432,6 +439,13 @@ Synaptics::isRelative(void) {
 	return (!bitRead(_mode,7));
 }
 
+/*
+ * sets advanced gesture mode
+ */
+void
+Synaptics::set_agm(void) {
+	special_sequence(PAD_SEQ_SET_AGM, 0x01);
+}
 
 /*
  * read a byte of data from the ps2 device.  Ignores parity.

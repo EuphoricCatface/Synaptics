@@ -17,6 +17,7 @@
 
 #define PAD_SEQ_INFO  		0x01 // information queries command sequence 
 #define PAD_SEQ_SET_MODE 	0x02 // set mode command sequence
+#define PAD_SEQ_SET_AGM 	0x03 // set advanced gesture mode
 
 #define PAD_MODE_ABSOLUTE	0x80 // bit7 1 to select Absolute mode
 #define PAD_MODE_RATE_80	0x40 // bit6 1 to select high (80) packet rate
@@ -65,6 +66,12 @@ class Synaptics
 		void set_mode(uint8_t mode);
 		bool isAbsolute(void);
 		bool isRelative(void);
+		// set advanced gesture mode
+		// This library cannot handle AGM properly. Additional repository will be released.
+		// On my device, all it does is adding the ability to tell when there's a second finger on the touchpad.
+		// I believe it's because the test device is old (infoMajor = 7, infoMinor = 2)
+		// but it is also possible that AGM setting is done wrong.
+		void set_agm(void);
 		// helper functions to parse data packet
 		uint8_t getZ(void);
 		uint8_t getW(void);	
@@ -72,7 +79,7 @@ class Synaptics
 		int getY(void);	
 		bool leftClicked(void);
 		bool rightClicked(void);
-    bool middleClicked(void);
+		bool middleClicked(void);
 	private:
 		int _ps2clk;
 		int _ps2data;
